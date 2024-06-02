@@ -1,4 +1,8 @@
 import { useForm } from "react-hook-form"
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
+import { imageUpload } from "../../api";
 
 const Register = () => {
     const {
@@ -6,17 +10,37 @@ const Register = () => {
         handleSubmit,
         watch,
         formState: { errors },
-    } = useForm()
+    } = useForm();
+    const { createUser, setLoading, updateUserProfile } = useAuth();
+    const navigate = useNavigate();
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         const name = data.name;
         const role = data.role;
         const email = data.email;
         const salary = data.salary;
-        const photo = data.photo;
+        const photo = data.photo[0];
         const designation = data.designation;
         const bank_account_no = data.bank_account_no;
-        console.table(name, role, email, salary, photo, designation, bank_account_no)
+        const password = data.password;
+        const isVerified = false;
+        console.table(name, role, email, salary, photo, designation, bank_account_no, isVerified, password)
+        // console.log(photo[0]);
+
+        try {
+            setLoading(true)
+            
+            const image_url = await imageUpload(photo)
+            const result = await createUser(email, password)
+            console.log(result.user);
+
+            await updateUserProfile(name, image_url)
+
+            toast.success('Sign Up Successful')
+            navigate('/')
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
@@ -58,7 +82,7 @@ const Register = () => {
                                             <select defaultValue='' className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full " required="required" name="roles" {...register("role", { required: true })} id="integration_city_id">
                                                 <option value="" disabled>Select Role</option>
                                                 <option value="HR">HR</option>
-                                                <option value="">Employee</option>
+                                                <option value="Employee">Employee</option>
                                             </select>
                                             {errors.role && <span>This field is required</span>}
                                         </div>
@@ -86,9 +110,9 @@ const Register = () => {
                                                     </svg>
                                                 </span>
                                             </div> */}
-                                            <div className="w-12 h-10 mr-4 flex-none rounded-xl border overflow-hidden">
+                                            {/* <div className="w-12 h-10 mr-4 flex-none rounded-xl border overflow-hidden">
                                                 <img className="w-12 h-12 mr-4 object-cover" src="https://images.unsplash.com/photo-1611867967135-0faab97d1530?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1352&amp;q=80" alt="Avatar Upload" />
-                                            </div>
+                                            </div> */}
                                             <input type="file" {...register("photo", { required: true })} className="flex-shrink flex-grow leading-normal flex-1 border border-dashed py-2 border-grey-light rounded-lg px-3  relative focus:border-none focus:border-blue focus:shadow" name="photo" placeholder="" accept='image/*' required="required" />
                                             {errors.photo && <span>This field is required</span>}
                                         </div>
@@ -113,15 +137,26 @@ const Register = () => {
                                         </div>
                                     </div>
 
-                                    <div className="w-full flex flex-col mb-3 text-xs">
+                                    <div className="w-full flex flex-col mb-1 text-xs">
                                         <label className="font-semibold text-gray-600 py-2">Bank Account No <abbr title="required">*</abbr></label>
                                         <input placeholder="Bank Account No" {...register("bank_account_no", { required: true })} className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="bank_account_no" id="integration_street_address" required="required" />
                                         {errors.bank_account_no && <span>This field is required</span>}
                                     </div>
 
+                                    <div className="w-full flex flex-col mb-3 text-xs">
+                                        <label className="font-semibold text-gray-600 py-2">Password <abbr title="required">*</abbr></label>
+                                        <input placeholder="******" {...register("password", { required: true })} className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="password" id="integration_street_address" required="required" />
+                                        {errors.password && <span>This field is required</span>}
+                                    </div>
+
                                     <div className="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
                                         <button type="submit" className="mb-2 md:mb-0 bg-green-400 md:w-1/2 py-2.5 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Register</button>
                                     </div>
+                                    <p className="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
+                                        <span>Have an account?</span>
+                                        <Link to='/login' className="text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">Sign
+                                            in</Link>
+                                    </p>
                                 </form>
                             </div>
                         </div>
