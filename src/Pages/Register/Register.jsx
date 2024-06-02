@@ -3,50 +3,72 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { imageUpload } from "../../api";
+import useAxiosCommon from "../../hooks/useAxiosCommon";
 
 const Register = () => {
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
     } = useForm();
     const { createUser, setLoading, updateUserProfile } = useAuth();
     const navigate = useNavigate();
+    const axiosCommon = useAxiosCommon()
 
     const onSubmit = async (data) => {
         const name = data.name;
         const role = data.role;
         const email = data.email;
-        const salary = data.salary;
+        const salary = parseFloat(data.salary);
         const photo = data.photo[0];
         const designation = data.designation;
         const bank_account_no = data.bank_account_no;
         const password = data.password;
         const isVerified = false;
-        console.table(name, role, email, salary, photo, designation, bank_account_no, isVerified, password)
+        // console.table(name, role, email, salary, photo, designation, bank_account_no, isVerified, password)
         // console.log(photo[0]);
+
+        if (password.length < 6) {
+            return toast.error('Password must be at least 6 characters')
+        } else if (!/.*[A-Z].*/.test(password)) {
+            return toast.error("Password must contain at least one capital letter")
+        } else if (!/.*[!@#$%^&*(),.?":{}|<>].*/.test(password)) {
+            return toast.error("Password must contain at least one special character")
+        }
 
         try {
             setLoading(true)
-            
+
             const image_url = await imageUpload(photo)
             const result = await createUser(email, password)
-            console.log(result.user);
-
+            // console.log(result.user);
             await updateUserProfile(name, image_url)
 
-            toast.success('Sign Up Successful')
+            const userInfo = {
+                name,
+                role,
+                email,
+                salary,
+                image_url,
+                designation,
+                bank_account_no,
+                isVerified,
+            }
+            // console.log('userInfo', userInfo);
+
+            const res = await axiosCommon.post('/users', userInfo)
+            console.log(res.data);
+
+            toast.success("Registration successful! Welcome aboard.")
             navigate('/')
         } catch (error) {
-            console.log(error);
+            toast.error(error.message.split('/')[1].replace(").", ""));
         }
     }
 
     return (
         <div>
-            <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
-            <div className="relative min-h-screen flex items-center justify-center bg-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center"
+            <div className="relative min-h-screen flex items-center justify-center bg-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 bg-no-repeat bg-cover "
                 style={{ backgroundImage: "url(https://images.unsplash.com/photo-1532423622396-10a3f979251a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80)" }}>
                 <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
                 <div className="max-w-md w-full space-y-8 p-10 bg-white rounded-xl shadow-lg z-10">
@@ -72,26 +94,20 @@ const Register = () => {
                                     </div> */}
                                     <div className="md:flex flex-row md:space-x-4 w-full text-xs">
                                         <div className="mb-3 space-y-2 w-full text-xs">
-                                            <label className="font-semibold text-gray-600 py-2">Name <abbr title="required">*</abbr></label>
-                                            <input placeholder="Name" className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" {...register("name", { required: true })} id="integration_shop_name" />
+                                            <label htmlFor="name" className="font-semibold text-gray-600 py-2">Name <abbr title="required">*</abbr></label>
+                                            <input placeholder="Name" className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" {...register("name", { required: true })} id="name" />
                                             {errors.name && <span>This field is required</span>}
                                         </div>
 
                                         <div className="w-full space-y-2">
-                                            <label className="font-semibold text-gray-600 py-2">Role <abbr title="required">*</abbr></label>
-                                            <select defaultValue='' className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full " required="required" name="roles" {...register("role", { required: true })} id="integration_city_id">
+                                            <label htmlFor="role" className="font-semibold text-gray-600 py-2">Role <abbr title="required">*</abbr></label>
+                                            <select defaultValue='' className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full " required="required" name="roles" {...register("role", { required: true })} id="role">
                                                 <option value="" disabled>Select Role</option>
                                                 <option value="HR">HR</option>
                                                 <option value="Employee">Employee</option>
                                             </select>
                                             {errors.role && <span>This field is required</span>}
                                         </div>
-
-                                        {/* <div className="mb-3 space-y-2 w-full text-xs">
-                                            <label className="font-semibold text-gray-600 py-2">Company  Mail <abbr title="required">*</abbr></label>
-                                            <input placeholder="Email ID" className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" required="required" type="text" name="integration[shop_name]" id="integration_shop_name" />
-                                            <p className="text-red text-xs hidden">Please fill out this field.</p>
-                                        </div> */}
                                     </div>
 
                                     <div className="mb-3 space-y-2 w-full text-xs">
@@ -125,27 +141,26 @@ const Register = () => {
                                             {errors.salary && <span>This field is required</span>}
                                         </div>
                                         <div className="w-full flex flex-col mb-1">
-                                            <label className="font-semibold text-gray-600 py-2">Designation <abbr title="required">*</abbr></label>
-                                            <select defaultValue='' {...register("designation", { required: true })} className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full " required="required" name="designation" id="integration_city_id">
+                                            <label htmlFor="designation" className="font-semibold text-gray-600 py-2">Designation <abbr title="required">*</abbr></label>
+                                            <select defaultValue='' {...register("designation", { required: true })} className="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full " required="required" name="designation" id="designation">
                                                 <option value="" disabled>Select Designation</option>
                                                 <option value="Sales Assistant">Sales Assistant</option>
                                                 <option value="Social Media executive">Social Media executive</option>
                                                 <option value="Digital Marketer">Digital Marketer</option>
-                                                {/* <option value="">Bangalore,KA</option> */}
                                             </select>
                                             {errors.designation && <span>This field is required</span>}
                                         </div>
                                     </div>
 
                                     <div className="w-full flex flex-col mb-1 text-xs">
-                                        <label className="font-semibold text-gray-600 py-2">Bank Account No <abbr title="required">*</abbr></label>
-                                        <input placeholder="Bank Account No" {...register("bank_account_no", { required: true })} className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="bank_account_no" id="integration_street_address" required="required" />
+                                        <label htmlFor="bank_account_no" className="font-semibold text-gray-600 py-2">Bank Account No <abbr title="required">*</abbr></label>
+                                        <input placeholder="Bank Account No" {...register("bank_account_no", { required: true })} className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="bank_account_no" id="bank_account_no" required="required" />
                                         {errors.bank_account_no && <span>This field is required</span>}
                                     </div>
 
                                     <div className="w-full flex flex-col mb-3 text-xs">
-                                        <label className="font-semibold text-gray-600 py-2">Password <abbr title="required">*</abbr></label>
-                                        <input placeholder="******" {...register("password", { required: true })} className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="password" id="integration_street_address" required="required" />
+                                        <label htmlFor="password" className="font-semibold text-gray-600 py-2">Password <abbr title="required">*</abbr></label>
+                                        <input placeholder="******" {...register("password", { required: true })} className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="password" name="password" id="password" required="required" />
                                         {errors.password && <span>This field is required</span>}
                                     </div>
 
@@ -154,7 +169,7 @@ const Register = () => {
                                     </div>
                                     <p className="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
                                         <span>Have an account?</span>
-                                        <Link to='/login' className="text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">Sign
+                                        <Link to='/login' className="text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">Login
                                             in</Link>
                                     </p>
                                 </form>
