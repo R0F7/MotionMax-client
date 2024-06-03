@@ -4,11 +4,21 @@ import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { FaGoogle } from "react-icons/fa";
 import useAxiosCommon from '../../hooks/useAxiosCommon';
+import { useQuery } from '@tanstack/react-query';
 
 const Login = () => {
     const { signIn, signInWithGoogle, user } = useAuth();
     const navigate = useNavigate();
     const axiosCommon = useAxiosCommon();
+
+    const { data: users = [] } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await axiosCommon.get('/users')
+            return res.data
+        }
+    })
+    // console.log(users);
 
     const handleLogin = async (e) => {
         e.preventDefault()
@@ -25,7 +35,7 @@ const Login = () => {
             navigate('/')
         } catch (error) {
             toast.error("Incorrect email or password. Please try again.")
-            console.log(error.message);
+            // console.log(error.message);
         }
     }
 
@@ -58,10 +68,11 @@ const Login = () => {
             console.log(userInfo);
             navigate('/')
 
-            
-
-            const res = await axiosCommon.post('/users',userInfo)
-            console.log(res.data);
+            const isExist = users.map(user => user.email === email)
+            if (!isExist) {
+                const res = await axiosCommon.post('/users', userInfo)
+                console.log(res.data);
+            }
 
         } catch (error) {
             console.log(error);

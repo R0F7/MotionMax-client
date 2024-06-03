@@ -7,7 +7,7 @@ const Main = () => {
             <div>
                 <NavBar></NavBar>
             </div>
-            <div>
+            <div className='container mx-auto'>
                 <Outlet></Outlet>
             </div>
         </div>

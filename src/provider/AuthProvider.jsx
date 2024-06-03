@@ -11,7 +11,6 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth'
-// import { app } from '../firebase/firebase.config'
 import axios from 'axios'
 import { app } from '../firebase/firebase.config'
 
@@ -43,11 +42,12 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email)
   }
 
-  const logOut = async () => {
+  const logOut = async (email) => {
     setLoading(true)
-    await axios.get(`${import.meta.env.VITE_API_URL}/logout`, {
+    const res = await axios.post(`${import.meta.env.VITE_API_URL}/logout`, { email }, {
       withCredentials: true,
     })
+    console.log(res.data);
     return signOut(auth)
   }
 
@@ -69,11 +69,18 @@ const AuthProvider = ({ children }) => {
 
   // onAuthStateChange
   useEffect(() => {
+
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
+      const userEmail = currentUser?.email || user?.email;
+      const loggedInUser = { email: userEmail };
+
       setUser(currentUser)
       if (currentUser) {
-        getToken(currentUser.email)
+        getToken(loggedInUser)
+      } else {
+        logOut(loggedInUser)
       }
+
       setLoading(false)
     })
     return () => {
