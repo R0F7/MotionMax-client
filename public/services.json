@@ -1,0 +1,148 @@
+[
+    {
+        "title": "Vehicle Sales and Leasing",
+        "image": "https://i.ibb.co/L1C1NHD/Vehicle-Sales-and-Leasing.jpg",
+        "features": [
+            {
+                "sub_title": "New Vehicle Sales",
+                "short_description": "Selling new cars, trucks, motorcycles, and other vehicles."
+            },
+            {
+                "sub_title": "Pre-owned Vehicle Sales",
+                "short_description": "Selling certified pre-owned and used vehicles."
+            },
+            {
+                "sub_title": "Vehicle Leasing",
+                "short_description": "Offering leasing options for new and used vehicles."
+            }
+        ]
+    },
+    {
+        "title": "After-Sales Services",
+        "image": "https://i.ibb.co/mG9BcBS/After-Sales-Services.jpg",
+        "features": [
+            {
+                "sub_title": "Maintenance and Repairs",
+                "short_description": "Providing routine maintenance, mechanical repairs, and bodywork services."
+            },
+            {
+                "sub_title": "Parts and Accessories",
+                "short_description": "Selling genuine parts and accessories for vehicles."
+            },
+            {
+                "sub_title": "Warranty Services",
+                "short_description": "Managing warranty claims and services."
+            }
+        ]
+    },
+    {
+        "title": "Fleet Management",
+        "image": "https://i.ibb.co/F3pRcqR/Fleet-Management.jpg",
+        "features": [
+            {
+                "sub_title": "Corporate Fleet Sales",
+                "short_description": "Special sales programs for corporate clients needing multiple vehicles."
+            },
+            {
+                "sub_title": "Fleet Maintenance",
+                "short_description": "Maintenance services tailored for fleet vehicles."
+            },
+            {
+                "sub_title": "Fleet Leasing",
+                "short_description": "Leasing options for corporate fleets."
+            }
+        ]
+    },
+    {
+        "title": "Customer Support and Services",
+        "image": "https://i.ibb.co/jvjyQ9Q/Customer-Support-and-Services.jpg",
+        "features": [
+            {
+                "sub_title": "Customer Care",
+                "short_description": "Providing customer support for vehicle-related queries and issues."
+            },
+            {
+                "sub_title": "Roadside Assistance",
+                "short_description": "Offering emergency roadside assistance services."
+            },
+            {
+                "sub_title": "Loyalty Programs",
+                "short_description": "Implementing customer loyalty and rewards programs."
+            }
+        ]
+    },
+    {
+        "title": "Financial Services",
+        "image": "https://i.ibb.co/gFFvwYb/Financial-Services.jpg",
+        "features": [
+            {
+                "sub_title": "Financing and Loans",
+                "short_description": "Providing vehicle financing options and loan services."
+            },
+            {
+                "sub_title": "Insurance Services",
+                "short_description": "Offering vehicle insurance packages."
+            }
+        ]
+    },
+    {
+        "title": "Innovation and Technology",
+        "image": "https://i.ibb.co/qN08WBF/Innovation-and-Technology.jpg",
+        "features": [
+            {
+                "sub_title": "Research and Development",
+                "short_description": "Innovating and developing new vehicle technologies."
+            },
+            {
+                "sub_title": "Connected Vehicle Services",
+                "short_description": "Providing telematics and connected vehicle featuress."
+            }
+        ]
+    },
+    {
+        "title": "Environmental and Sustainability Services",
+        "image": "https://i.ibb.co/hH3HKPS/Environmental-and-Sustainability-Services.jpg",
+        "features": [
+            {
+                "sub_title": "Electric and Hybrid Vehicles",
+                "short_description": "Selling and servicing electric and hybrid vehicles."
+            },
+            {
+                "sub_title": "Sustainability Initiatives",
+                "short_description": "Implementing eco-friendly practices and sustainability initiatives."
+            }
+        ]
+    },
+    {
+        "title": "Training and Development",
+        "image": "https://i.ibb.co/DLXJJdJ/Training-and-Development.webp",
+        "features": [
+            {
+                "sub_title": "Employee Training Programs",
+                "short_description": "Training for sales staff, technicians, and other employees."
+            },
+            {
+                "sub_title": "Customer Education",
+                "short_description": "Providing workshops and information sessions for customers on vehicle maintenance and safety."
+            }
+        ]
+    },
+    {
+        "title": "Marketing and Sales Support",
+        "image": "https://i.ibb.co/R9Jd9fk/Marketing-and-Sales-Support.webp",
+        "features": [
+            {
+                "sub_title": "Advertising and Promotions",
+                "short_description": "Creating and managing marketing campaigns."
+            },
+            {
+                "sub_title": "Sales Training",
+                "short_description": "Providing training programs for the sales team."
+            },
+            {
+                "sub_title": "Customer Relationship Management (CRM)",
+                "short_description": "Implementing CRM systems to manage customer interactions and sales processes."
+            }
+        ]
+    }
+]

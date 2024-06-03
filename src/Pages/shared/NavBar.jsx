@@ -17,7 +17,7 @@ const NavBar = () => {
     }
 
     return (
-        <div className="border-b border-[#00b4d8] flex items-center justify-between container mx-auto py-2 md:mt-2 mb-4">
+        <div className="border-b border-[#00b4d8] flex items-center justify-between container mx-auto py-2 md:mt-2">
             <div>
                 <h4 className="text-2xl text-[#00b4d8] font-bold">MotionMax</h4>
             </div>
@@ -45,8 +45,8 @@ const NavBar = () => {
                         </div>
                         :
                         <>
-                            <Link to='/login' className="bg-[#00b4d8] py-2 px-3 text- font-bold text-white rounded-lg mr-3">Login</Link>
-                            <Link to='/register' className="bg-[#00b4d8] py-2 px-3 text- font-bold text-white rounded-lg">Register</Link>
+                            <Link to='/login'><button className="bg-[#00b4d8] py-2.5 px-5 text-sm font-bold text-white rounded-lg mr-3">Login</button></Link>
+                            <Link to='/register'><button className="bg-[#00b4d8] py-2.5 px-3.5 text-sm font-bold text-white rounded-lg">Register</button></Link>
                         </>
                     }
                 </div>

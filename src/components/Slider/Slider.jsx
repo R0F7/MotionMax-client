@@ -18,12 +18,16 @@ const Slider = () => {
     })
     // console.log(sliders);
 
+    const slidesPerView = 1;
+    const slidesPerGroup = 1;
+    const loop = sliders.length >= (slidesPerView + slidesPerGroup);
+
     return (
         <div>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
-                loop={true}
+                loop={loop}
                 pagination={{
                     clickable: true,
                 }}
