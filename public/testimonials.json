@@ -1,0 +1,63 @@
+[
+      {
+        "client_name": "Sarah Johnson",
+        "image": "https://i.ibb.co/kH1k9Rh/Sarah-Johnson.jpg",
+        "review": "Motor Corporation exceeded all my expectations! Their sales team was incredibly helpful and patient, guiding me through the process of finding the perfect car for my needs. I couldn't be happier with my new vehicle.",
+        "rating": 5
+      },
+      {
+        "client_name": "Mark Thompson",
+        "image": "https://i.ibb.co/NpKxLn3/Mark-Thompson.jpg",
+        "review": "I've been leasing vehicles from Motor Corporation for years now, and their service has always been top-notch. From the seamless leasing process to the prompt maintenance services, they make everything so convenient. Highly recommend!",
+        "rating": 4
+      },
+      {
+        "client_name": "Emma Wilson",
+        "image": "https://i.ibb.co/K5v6V6c/Emma-Wilson.jpg",
+        "review": "The after-sales support from Motor Corporation is outstanding. Whenever I've had an issue with my vehicle, their team has been quick to address it and get me back on the road. It's reassuring to know I can rely on them.",
+        "rating": 5
+      },
+      {
+        "client_name": "David Rodriguez",
+        "image": "https://i.ibb.co/h2Rpygv/David-Rodriguez.webp",
+        "review": "I recently participated in Motor Corporation's fleet leasing program for my business, and I'm extremely impressed with their professionalism and efficiency. They made the process so smooth and tailored the leasing options to fit our needs perfectly.",
+        "rating": 5
+      },
+      {
+        "client_name": "Emily White",
+        "image": "https://i.ibb.co/CMB8Fxm/Emily-White.jpg",
+        "review": "Motor Corporation's customer support team goes above and beyond to ensure customer satisfaction. I had a minor issue with my vehicle, and they handled it swiftly and courteously. It's refreshing to receive such exceptional service.",
+        "rating": 5
+      },
+      {
+        "client_name": "Daniel Martinez",
+        "image": "https://i.ibb.co/y5q4NhR/Daniel-Martinez.jpg",
+        "review": "I'm thoroughly impressed with Motor Corporation's financial services. They offered me flexible financing options with competitive rates, making it easy for me to afford my dream car. I'm grateful for their assistance.",
+        "rating": 4
+      },
+      {
+        "client_name": "Sophia Brown",
+        "image": "https://i.ibb.co/Gd1TC9g/Sophia-Brown.webp",
+        "review": "I love how Motor Corporation prioritizes innovation and technology. Their vehicles come equipped with the latest features, making driving safer and more enjoyable. I appreciate their commitment to staying ahead of the curve.",
+        "rating": 5
+      },
+      {
+        "client_name": "Liam Wilson",
+        "image": "https://i.ibb.co/LrkPPPZ/Liam-Wilson.jpg",
+        "review": "As an environmentally conscious consumer, I appreciate Motor Corporation's efforts towards sustainability. Their range of electric and hybrid vehicles is impressive, and I'm proud to support their eco-friendly initiatives.",
+        "rating": 5
+      },
+      {
+        "client_name": "Olivia Garcia",
+        "image": "https://i.ibb.co/fNzL54J/Olivia-Garcia.jpg",
+        "review": "The training and development programs offered by Motor Corporation are invaluable. They invest in their employees' growth and development, which translates to better service for customers like me. Keep up the great work!",
+        "rating": 4
+      },
+      {
+        "client_name": "Noah Taylor",
+        "image": "https://i.ibb.co/JQn59hS/Noah-Taylor.webp",
+        "review": "Motor Corporation's marketing and sales support has been instrumental in my decision-making process. Their informative advertisements and sales promotions helped me find the perfect vehicle. Thank you for making the experience so enjoyable!",
+        "rating": 5
+      }
+    ]
+  

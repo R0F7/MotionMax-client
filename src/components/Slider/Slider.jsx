@@ -42,7 +42,7 @@ const Slider = () => {
                 {
                     sliders.map((slider, idx) => <SwiperSlide key={idx}>
                         <div className='w-full h-[650px] relative'>
-                            <img className='w-full h-full border border-red-600' src={slider.image} alt="" />
+                            <img className='w-full h-full' src={slider.image} alt="" />
                             <div className='w-full h-full bg-black absolute top-0 left-0 bg-opacity-50 flex items-center justify-center'>
                                 <div className='text-white text-center'>
                                     <h2 className='text-4xl font-semibold'>{slider.title}</h2>
