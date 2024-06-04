@@ -19,7 +19,10 @@ const NavBar = () => {
     return (
         <div className="border-b border-[#00b4d8] flex items-center justify-between container mx-auto py-2 md:mt-2">
             <div>
-                <h4 className="text-2xl text-[#00b4d8] font-bold">MotionMax</h4>
+                <h4 className="text-2xl flex items-center gap-2 text-[#00b4d8] font-bold">
+                    <img className="w-[50px]" src="https://i.ibb.co/5c06sK1/Motion-Max-removebg-preview.png" alt="" />
+                    <span>MotionMax</span>
+                    </h4>
             </div>
             <div>
 

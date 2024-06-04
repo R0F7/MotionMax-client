@@ -8,7 +8,6 @@ const FeaturedVehicles = () => {
         queryKey: ['featuredVehicles'],
         queryFn: async () => {
             const res = await axiosCommon.get('/featuredVehicles');
-            // const res = await axios.get('/featuredVehicles.json');
             return res.data
         }
     })
