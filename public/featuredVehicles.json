@@ -1,0 +1,35 @@
+[
+    {
+        "model": "2024 Phoenix Z",
+        "image": "https://i.ibb.co/0hhRqk3/2024-Phoenix-Z.jpg",
+        "features": [
+            "Electric Powertrain",
+            "Autonomous Driving",
+            "Sleek Design"
+        ],
+        "price": "$45,000",
+        "position": 1
+    },
+    {
+        "model": "2024 Sedona-x",
+        "image": "https://i.ibb.co/qBvPdBZ/sedona-x.jpg",
+        "features": [
+            "Premium Comfort",
+            "Advanced Infotainment",
+            "Elegant Design"
+        ],
+        "price": "$70,000",
+        "position": 2
+    },
+    {
+        "model": "2024 RoadMaster",
+        "image": "https://i.ibb.co/zVVB4RV/2024-Aero-Sport.webp",
+        "features": [
+            "Durability",
+            "Off-road Capability",
+            "Spacious Interior"
+        ],
+        "price": "$60,000",
+        "position": 3
+    }
+]
