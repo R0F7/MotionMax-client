@@ -30,7 +30,7 @@ const NavBar = () => {
             <div className="flex items-center">
                 <div className="mr-14">
                     <ul className="space-x-3">
-                        <NavLink to='/' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-b-2 pb-1.5 border-[#00b4d8]' : 'font-medium'}>Dashboard</NavLink>
+                        <NavLink to='/dashboard/work-sheet' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-b-2 pb-1.5 border-[#00b4d8]' : 'font-medium'}>Dashboard</NavLink>
                         <NavLink to='/contact-us' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-b-2 pb-1.5 border-[#00b4d8]' : 'font-medium'}>Contact us</NavLink>
                     </ul>
                 </div>
