@@ -5,27 +5,29 @@ import useAxiosCommon from "../../../hooks/useAxiosCommon";
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const WorkSheet = () => {
     const [startDate, setStartDate] = useState(new Date());
-    const { user } = useAuth()
+    const { user } = useAuth();
     const axiosCommon = useAxiosCommon();
+    const axiosSecure = useAxiosSecure();
+    const user_email = user?.email;
 
     const { data:work_sheet = [], refetch } = useQuery({
-        queryKey: ['work-sheet'],
+        queryKey: ['work-sheet',user_email],
         queryFn: async () => {
-            const res = await axiosCommon.get('/work-sheet');
+            const res = await axiosSecure.get(`/work-sheet?email=${user_email}`);
             return res.data
         }
     })
-    console.log(work_sheet);
+    // console.log(work_sheet);
 
     const handleWorkForm = async (e) => {
         e.preventDefault()
         const form = e.target;
         const task = form.task.value;
         const hours = form.hours.value;
-        const user_email = user?.email;
         const createAt = new Date();
 
         const workInfo = {
@@ -37,7 +39,7 @@ const WorkSheet = () => {
         }
 
         try {
-            const work_sheet = await axiosCommon.post('/work-sheet', workInfo)
+            const work_sheet = await axiosCommon.post('/work-sheet', workInfo,)
             if (work_sheet.data.insertedId) {
                 refetch()
                 Swal.fire({

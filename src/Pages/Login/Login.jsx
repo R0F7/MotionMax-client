@@ -4,20 +4,20 @@ import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { FaGoogle } from "react-icons/fa";
 import useAxiosCommon from '../../hooks/useAxiosCommon';
-import { useQuery } from '@tanstack/react-query';
+// import { useQuery } from '@tanstack/react-query';
 
 const Login = () => {
-    const { signIn, signInWithGoogle, user } = useAuth();
+    const { signIn, signInWithGoogle } = useAuth();
     const navigate = useNavigate();
     const axiosCommon = useAxiosCommon();
 
-    const { data: users = [] } = useQuery({
-        queryKey: ['users'],
-        queryFn: async () => {
-            const res = await axiosCommon.get('/users')
-            return res.data
-        }
-    })
+    // const { data: users = [] } = useQuery({
+    //     queryKey: ['users'],
+    //     queryFn: async () => {
+    //         const res = await axiosCommon.get('/users')
+    //         return res.data
+    //     }
+    // })
     // console.log(users);
 
     const handleLogin = async (e) => {
@@ -68,11 +68,14 @@ const Login = () => {
             console.log(userInfo);
             navigate('/')
 
-            const isExist = users.map(user => user.email === email)
-            if (!isExist) {
-                const res = await axiosCommon.post('/users', userInfo)
-                console.log(res.data);
-            }
+            // const isExist = users.map(user => user.email === email)
+            // if (!isExist) {
+                // const res = await axiosCommon.post('/users', userInfo)
+                // console.log(res.data);
+            // }
+
+            const res = await axiosCommon.post('/users', userInfo)
+            console.log(res.data);
 
         } catch (error) {
             console.log(error);

@@ -39,7 +39,7 @@ const NavBar = () => {
                         <div className="">
                             <div onClick={handleToggle} className="w-12 h-12 rounded-full border-2 p-[4px] border-[#00b4d8] focus:w-10 focus:h-10 relative ">
                                 <img className="w-full h-full rounded-full" src={user?.photoURL} alt="user" />
-                                <div className={toggle ? 'h-[60px] w-[150px] bg-[#00b4d8] absolute -left-[103px] top-[60px] rounded-lg flex justify-center items-center opacity-100 visible duration-700' : 'opacity-0 invisible duration-700 h-[60px] w-[150px] -left-[103px] top-[60px] flex justify-center items-center absolute'}>
+                                <div className={toggle ? 'h-[60px] w-[150px] bg-[#00b4d8] absolute -left-[103px] top-[60px] rounded-lg flex justify-center items-center opacity-100 visible duration-700 z-50' : 'opacity-0 invisible duration-700 h-[60px] w-[150px] -left-[103px] top-[60px] flex justify-center items-center absolute z-50'}>
                                     <button onClick={handleLogOut} className="border-y-white border py-2 w-full text- font-bold text-white  flex items-center hover:bg-white hover:text-[#00b4d8] duration-1000 ease-out">
                                         <span className="text-xl ml-2 mr-6"><MdLogout /></span>LogOut
                                     </button>
