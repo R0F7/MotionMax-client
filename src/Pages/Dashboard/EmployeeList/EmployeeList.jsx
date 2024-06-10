@@ -49,13 +49,6 @@ const EmployeeList = () => {
         document.getElementById('my_modal_1').showModal()
     }
     // console.log(modalValue.salary);
-    const handlePaymentForm = (e) => {
-        e.preventDefault()
-        const form = e.target;
-        const salary = form.salary.value;
-        const month = form.month.value;
-        console.log(salary, month);
-    }
 
     const columnHelper = createColumnHelper();
 
@@ -173,28 +166,11 @@ const EmployeeList = () => {
                     }
                 </tbody>
             </table>
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            {/* <button>open modal</button> */}
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box">
                 <Elements stripe={stripePromise}>
-                    <CheckoutForm payment={modalValue?.salary}></CheckoutForm>
+                    <CheckoutForm info={modalValue}></CheckoutForm>
                 </Elements>
-                    <form onSubmit={handlePaymentForm} method="dialog">
-                        <div className="grid grid-cols-2 gap-3">
-                            <label className="flex flex-col" htmlFor="salary"><span className="font-semibold mb-1"> Salary <span className="text-red-500">*</span></span>
-                                <input className="border p-1.5" type="text" name="salary" id="salary" defaultValue={modalValue?.salary} readOnly />
-                            </label>
-
-                            <label className="flex flex-col" htmlFor="month"><span className="font-semibold mb-1"> Date <span className="text-red-500">*</span></span>
-                                <input className="border p-1.5" type="month" name="month" id="month" />
-                            </label>
-                        </div>
-                        <div className="flex justify-center gap-3 mt-4">
-                            <button type="button" className="py-2 bg-red-500 w-20 rounded-lg shadow-lg text-white" onClick={() => document.getElementById('my_modal_1').close()}>Close</button>
-                            <button type="submit" className="py-2 bg-[#00B4D8] text-white w-20 rounded-lg shadow-lg">Pay</button>
-                        </div>
-                    </form>
                 </div>
             </dialog>
         </div>
