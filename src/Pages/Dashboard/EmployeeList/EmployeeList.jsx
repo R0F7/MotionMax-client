@@ -9,6 +9,7 @@ import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import { Link } from "react-router-dom";
 
 const EmployeeList = () => {
     const axiosCommon = useAxiosCommon();
@@ -97,13 +98,13 @@ const EmployeeList = () => {
                 className={`px-2.5 py-1 rounded-md shadow-md text-sm ${info.getValue() ? 'bg-[#00B4D8] text-white' : 'bg-gray-500 text-white'
                     }`}
             >Pay</button>,
-            header: 'Payment',
+            header: '',
         }),
 
-        columnHelper.accessor("", {
-            cell: () => <button className="border border-[#00B4D8] text-[#00B4D8] font-bold px-2.5 py-1 rounded-md shadow-md text-sm">Details</button>,
-            // header: 'Details',
-            id: 'Details'
+        columnHelper.accessor("name", {
+            id:'Details',
+            cell: (info) => <Link to={`/dashboard/details/${info.row.original.email}`} className="border border-[#00B4D8] text-[#00B4D8] font-bold px-2.5 py-1 rounded-md shadow-md text-sm">Details</Link>,
+            header: '',
         }),
     ]
 

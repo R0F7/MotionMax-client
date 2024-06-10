@@ -7,6 +7,7 @@ import Dashboard from "../Layout/Dashboard";
 import WorkSheet from "../Pages/Dashboard/WorkSheet/WorkSheet";
 import EmployeeList from "../Pages/Dashboard/EmployeeList/EmployeeList";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import Details from "../Pages/Dashboard/Details/Details";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
             {
                 path:'employee-list',
                 element:<EmployeeList></EmployeeList>
+            },
+            {
+                path:'details/:email',
+                element:<Details></Details>
             }
         ]
     }
