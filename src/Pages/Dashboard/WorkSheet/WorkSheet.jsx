@@ -43,7 +43,7 @@ const WorkSheet = () => {
             if (work_sheet.data.insertedId) {
                 refetch()
                 Swal.fire({
-                    position: "top-end",
+                    position: "center",
                     icon: "success",
                     title: "Your work has been saved",
                     showConfirmButton: false,

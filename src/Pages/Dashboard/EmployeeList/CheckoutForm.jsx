@@ -85,6 +85,7 @@ const CheckoutForm = ({ info }) => {
 
         if (confirmError) {
             console.log('confirm error');
+            location.reload()
         } else {
             // console.log('payment intent', paymentIntent);
             if (paymentIntent.status === 'succeeded') {
