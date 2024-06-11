@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import DetailsChart from "./DetailsChart";
 
 const Details = () => {
     const { email } = useParams();
@@ -23,7 +24,7 @@ const Details = () => {
     }
 
     const { user, payments } = allInfo;
-    console.log(user, payments);
+    // console.log(user, payments);
 
     return (
         <div>
@@ -39,6 +40,9 @@ const Details = () => {
                         <h4 className="text-slate-100 font-medium"><span className="font-bold ">Designation :</span> {user?.designation}</h4>
                     </div>
                 </div>
+            </div>
+            <div className="mt-10">
+                <DetailsChart payments={payments}></DetailsChart>
             </div>
         </div>
     );
