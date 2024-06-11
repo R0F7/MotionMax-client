@@ -14,6 +14,7 @@ import useHR from '../../../hooks/useHR'
 import useAdmin from '../../../hooks/useAdmin'
 import { LuFileSpreadsheet } from 'react-icons/lu'
 import { RiFileHistoryLine } from 'react-icons/ri'
+import { GiProgression } from 'react-icons/gi'
 
 const Sidebar = () => {
   const { logOut } = useAuth()
@@ -101,23 +102,35 @@ const Sidebar = () => {
                   }`
                 }
               >
-                <RiFileHistoryLine className='w-5 h-5'/>
+                <RiFileHistoryLine className='w-5 h-5' />
                 <span className='mx-4 font-medium'>Payment History</span>
               </NavLink>
 
               {/* HR */}
               {
                 isHR &&
-                <NavLink
-                  to='/dashboard/employee-list'
-                  className={({ isActive }) =>
-                    `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                    }`
-                  }
-                >
-                  <FaThList className='w-5 h-5' />
-                  <span className='mx-4 font-medium'>Employee List</span>
-                </NavLink>
+                <>
+                  <NavLink
+                    to='/dashboard/employee-list'
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                      }`
+                    }
+                  >
+                    <FaThList className='w-5 h-5' />
+                    <span className='mx-4 font-medium'>Employee List</span>
+                  </NavLink>
+                  <NavLink
+                    to='/dashboard/progress'
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                      }`
+                    }
+                  >
+                    <GiProgression className='w-5 h-5' />
+                    <span className='mx-4 font-medium'>Progress</span>
+                  </NavLink>
+                </>
               }
 
             </nav>

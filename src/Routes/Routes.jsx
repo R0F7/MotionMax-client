@@ -8,6 +8,7 @@ import WorkSheet from "../Pages/Dashboard/WorkSheet/WorkSheet";
 import EmployeeList from "../Pages/Dashboard/EmployeeList/EmployeeList";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import Details from "../Pages/Dashboard/Details/Details";
+import Progress from "../Pages/Dashboard/Progress/Progress";
 
 export const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
             {
                 path:'details/:email',
                 element:<Details></Details>
+            },
+            {
+                path:'progress',
+                element:<Progress></Progress>
             }
         ]
     }

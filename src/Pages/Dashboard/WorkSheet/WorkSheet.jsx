@@ -13,6 +13,8 @@ const WorkSheet = () => {
     const axiosCommon = useAxiosCommon();
     const axiosSecure = useAxiosSecure();
     const user_email = user?.email;
+    const user_name = user?.displayName;
+    const user_image = user?.photoURL;
 
     const { data:work_sheet = [], refetch } = useQuery({
         queryKey: ['work-sheet',user_email],
@@ -32,9 +34,11 @@ const WorkSheet = () => {
 
         const workInfo = {
             task,
+            user_image,
+            user_name,
             user_email,
             hours: parseFloat(hours),
-            startDate: startDate.toLocaleDateString(),
+            date: startDate.toLocaleDateString(),
             createAt,
         }
 
@@ -99,7 +103,6 @@ const WorkSheet = () => {
             </form>
 
             <div>
-                <p className="text-lg text-center font-bold m-5">Classic Table Design</p>
                 <table className="rounded-t-lg m-5 w-full mx-auto bg-gray-200 text-gray-800">
                     <thead>
                         <tr className="text-left border-b-2 border-gray-300">
@@ -115,13 +118,12 @@ const WorkSheet = () => {
                             <td className="px-4 py-3">{idx + 1}</td>
                             <td className="px-4 py-3">{work.task}</td>
                             <td className="px-4 py-3">{work.hours}</td>
-                            <td className="px-4 py-3">{work.startDate}</td>
+                            <td className="px-4 py-3">{work.date}</td>
                         </tr>)
                         }
 
                     </tbody>
                 </table>
-
             </div>
         </div>
     );
