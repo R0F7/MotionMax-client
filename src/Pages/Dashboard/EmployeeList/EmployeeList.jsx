@@ -28,7 +28,7 @@ const EmployeeList = () => {
 
     const handleVerified = async (user) => {
         try {
-            const res = await axiosSecure.patch(`/verify/${user._id}`, user);
+            const res = await axiosSecure.patch(`/verify/${user._id}`);
             // console.log(res);
             if (res.data.modifiedCount > 0) {
                 refetch()

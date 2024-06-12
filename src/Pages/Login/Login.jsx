@@ -4,20 +4,20 @@ import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { FaGoogle } from "react-icons/fa";
 import useAxiosCommon from '../../hooks/useAxiosCommon';
-// import { useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 const Login = () => {
-    const { signIn, signInWithGoogle } = useAuth();
+    const { signIn, signInWithGoogle, logOut } = useAuth();
     const navigate = useNavigate();
     const axiosCommon = useAxiosCommon();
 
-    // const { data: users = [] } = useQuery({
-    //     queryKey: ['users'],
-    //     queryFn: async () => {
-    //         const res = await axiosCommon.get('/users')
-    //         return res.data
-    //     }
-    // })
+    const { data: users = [] } = useQuery({
+        queryKey: ['fired-users'],
+        queryFn: async () => {
+            const res = await axiosCommon.get(`/fired-users`)
+            return res.data
+        }
+    })
     // console.log(users);
 
     const handleLogin = async (e) => {
@@ -26,7 +26,13 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
+
+        const loginUser = users.find(user => user.email === email)
+
+        if (loginUser?.isFired) {
+            return toast.error("Your account is terminated. Login is not permitted.")
+        }
 
         try {
             const result = await signIn(email, password)
@@ -42,13 +48,20 @@ const Login = () => {
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithGoogle()
-            toast.success("Login successful! Welcome back.")
             console.log(result.user);
             // name, role, email, salary, photo, designation, bank_account_no, isVerified, password
 
+            const email = result.user.email;
+            const loginUser = users.find(user => user.email === email)
+
+            if (loginUser?.isFired) {
+                logOut(email)
+                return toast.error("Your account is terminated. Login is not permitted.")
+            }
+
+            toast.success("Login successful! Welcome back.")
             const name = result.user.displayName;
             const role = 'Employee';
-            const email = result.user.email;
             const salary = 17600;
             const image_url = result.user.photoURL;
             const designation = 'Sales Assistant';
@@ -67,12 +80,6 @@ const Login = () => {
             }
             console.log(userInfo);
             navigate('/')
-
-            // const isExist = users.map(user => user.email === email)
-            // if (!isExist) {
-                // const res = await axiosCommon.post('/users', userInfo)
-                // console.log(res.data);
-            // }
 
             const res = await axiosCommon.post('/users', userInfo)
             console.log(res.data);
