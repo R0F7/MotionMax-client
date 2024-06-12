@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { createColumnHelper, flexRender, getCoreRowModel, getPaginationRowModel, useReactTable } from "@tanstack/react-table";
 import Swal from "sweetalert2";
+import { useState } from "react";
+import IncrementOnlyInput from "./IncrementOnlyInput";
 
 const AllEmployeeList = () => {
     const axiosSecure = useAxiosSecure();
@@ -77,6 +79,11 @@ const AllEmployeeList = () => {
         columnHelper.accessor("designation", {
             cell: (info) => <span>{info.getValue()}</span>,
             header: 'Designation',
+        }),
+
+        columnHelper.accessor("salary", {
+            cell: (info) => <IncrementOnlyInput info={info.row.original}></IncrementOnlyInput>,
+            header: 'Salary',
         }),
 
         columnHelper.accessor("role", {
