@@ -10,6 +10,7 @@ import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import Details from "../Pages/Dashboard/Details/Details";
 import Progress from "../Pages/Dashboard/Progress/Progress";
 import AllEmployeeList from "../Pages/Dashboard/AllEmployeeList/AllEmployeeList";
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home></Home>,
+            },
+            {
+                path:'/contact-us',
+                element:<Contact></Contact>
             }
         ]
     },
@@ -56,7 +61,8 @@ export const router = createBrowserRouter([
             },
             {
                 path:'all-employee-list',
-                element:<AllEmployeeList></AllEmployeeList>
+                element:<AllEmployeeList></AllEmployeeList>,
+               
             }
         ]
     }

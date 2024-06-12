@@ -15,13 +15,15 @@ import useAdmin from '../../../hooks/useAdmin'
 import { LuFileSpreadsheet } from 'react-icons/lu'
 import { RiFileHistoryLine } from 'react-icons/ri'
 import { GiProgression } from 'react-icons/gi'
+import useEmployee from '../../../hooks/useEmployee'
 
 const Sidebar = () => {
   const { logOut } = useAuth()
   const [isActive, setActive] = useState(false);
+  const [isEmployee] = useEmployee()
   const [isHR] = useHR();
   // console.log(isHR);
-  const [isAdmin]=useAdmin()
+  const [isAdmin] = useAdmin()
   // console.log(isAdmin);
 
   // Sidebar Responsive Handler
@@ -82,29 +84,33 @@ const Sidebar = () => {
             <nav>
 
               {/* Employee */}
-              <NavLink
-                to='/dashboard/work-sheet'
-                end
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                  }`
-                }
-              >
-                <LuFileSpreadsheet className='w-5 h-5' />
-                <span className='mx-4 font-medium'>Work Sheet</span>
-              </NavLink>
+              {
+                isEmployee && <>
+                  <NavLink
+                    to='/dashboard/work-sheet'
+                    end
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                      }`
+                    }
+                  >
+                    <LuFileSpreadsheet className='w-5 h-5' />
+                    <span className='mx-4 font-medium'>Work Sheet</span>
+                  </NavLink>
 
-              <NavLink
-                to='/dashboard/payment-history'
-                end
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                  }`
-                }
-              >
-                <RiFileHistoryLine className='w-5 h-5' />
-                <span className='mx-4 font-medium'>Payment History</span>
-              </NavLink>
+                  <NavLink
+                    to='/dashboard/payment-history'
+                    end
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                      }`
+                    }
+                  >
+                    <RiFileHistoryLine className='w-5 h-5' />
+                    <span className='mx-4 font-medium'>Payment History</span>
+                  </NavLink>
+                </>
+              }
 
               {/* HR */}
               {
@@ -133,7 +139,7 @@ const Sidebar = () => {
                 </>
               }
               {/* admin */}
-              { isAdmin && 
+              {isAdmin &&
                 <>
                   <NavLink
                     to='/dashboard/all-employee-list'
