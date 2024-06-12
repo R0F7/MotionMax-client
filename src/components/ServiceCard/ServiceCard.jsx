@@ -5,7 +5,7 @@ const ServiceCard = ({ service }) => {
 
     return (
         <div className="">
-            <div className="break-words bg-[#00b4d8] w-full shadow-lg rounded-lg h-[530px]">
+            <div className="break-words bg-[#00b4d8] w-full shadow-lg rounded-lg h-[570px] md:h-[530px]">
                 <div className="relative">
                     <img alt="..." src={ image } className="w-full rounded-t-lg h-[250px]" />
                     <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" className="absolute left-0 w-full block h-[120px] bottom-0">

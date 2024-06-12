@@ -28,7 +28,7 @@ const Testimonials = () => {
         <div>
             <div className="text-center mb-10">
                 <h2 className="text-3xl font-semibold">Testimonials</h2>
-                <p className="w-[70%] mx-auto mt-2">Hear from our satisfied customers! Discover how Motor Corporation's exceptional services and dedicated support have made a difference in their automotive experiences. Read real stories and reviews from our clients</p>
+                <p className="w-[95%] lg:w-[70%] mx-auto mt-2">Hear from our satisfied customers! Discover how Motor Corporation's exceptional services and dedicated support have made a difference in their automotive experiences. Read real stories and reviews from our clients</p>
             </div>
             <Swiper
                 slidesPerView={1}

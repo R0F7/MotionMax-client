@@ -66,7 +66,7 @@ const WorkSheet = () => {
             <form onSubmit={handleWorkForm} className="grid grid-cols-10 items-end gap-6 g-red-500 bg-[#FDFDFD] border p-6 shadow-sm">
                 <div className="col-span-3">
                     <label className="flex flex-col" htmlFor="task"><span className="font-semibold mb-1">Task <span className="text-red-500">*</span></span>
-                        <select className="border p-1.5" id="task" name="task" defaultValue=''>
+                        <select className="border p-1.5" id="task" name="task" defaultValue='' required>
                             <option value="" disabled>Task</option>
                             <option value="Sales">Sales</option>
                             <option value="Support">Support</option>
@@ -78,11 +78,11 @@ const WorkSheet = () => {
 
                 <div className="col-span-3">
                     <label className="flex flex-col" htmlFor="hours"><span className="font-semibold mb-1"> Hours Worked <span className="text-red-500">*</span></span>
-                        <input className="border p-1.5" type="number" name="hours" id="hours" placeholder="Hours" />
+                        <input className="border p-1.5" type="number" name="hours" id="hours" placeholder="Hours" required/>
                     </label>
                 </div>
 
-                <div className="col-span-3">
+                <div className="col-span-4 lg:col-span-3">
                     <label className="flex flex-col" htmlFor="date"><span className="font-semibold mb-1">Date <span className="text-red-500">*</span></span>
 
                         <ReactDatePicker
@@ -92,11 +92,12 @@ const WorkSheet = () => {
                             isClearable
                             id="date"
                             className="border w-full p-1.5"
+                            required
                         />
                     </label>
                 </div>
 
-                <div className="col-span-1">
+                <div className="col-span-10 lg:col-span-1">
                     <button type="submit" className="bg-[#00b4d8] text-white h-10 w-full">Submit</button>
                 </div>
 

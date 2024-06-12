@@ -46,9 +46,9 @@ const Contact = () => {
     return (
         <div>
             <div>
-                <section className="dark:bg-gray-00 dark:text-gray-900 mt-10">
-                    <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x divide-cyan-400">
-                        <div className="">
+                <section className="dark:bg-gray-00 dark:text-gray-900 mt-6 md:my-10">
+                    <div className="md:grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x divide-cyan-400 flex flex-col-reverse">
+                        <div>
                             <MapWithMarker></MapWithMarker>
                         </div>
 
@@ -69,10 +69,10 @@ const Contact = () => {
                         </form>
                     </div>
                 </section>
-                <section className="my-6 mx-5 md:mx-0">
+                {isAdmin && <section className="my-6 mx-5 md:mx-0">
                     <h4 className="font-bold text-lg border-b border-cyan-500 pb-1 text-cyan-500 mb-2">Messages:</h4>
                     <div className="lg:w-[70%] grid md:grid-cols-3 gap-3">
-                        { isAdmin &&
+                        {
                             messages.map(message =>
                                 <div key={message._id} className="bg-gray-100 p-3 rounded-md">
                                     <h4 className="font-medium">{message.name}</h4>
@@ -82,7 +82,7 @@ const Contact = () => {
                             )
                         }
                     </div>
-                </section>
+                </section>}
             </div>
         </div>
     );

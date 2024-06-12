@@ -14,6 +14,8 @@ import Contact from "../Pages/Contact/Contact";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import AdminRoute from "./AdminRoute";
+import EmployeeRoute from "./EmployeeRoute";
+import HRRoute from "./HRRoute";
 
 export const router = createBrowserRouter([
     {
@@ -45,23 +47,23 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: 'work-sheet',
-                element: <WorkSheet></WorkSheet>
+                element: <EmployeeRoute><WorkSheet></WorkSheet></EmployeeRoute>
             },
             {
                 path:'payment-history',
-                element:<PaymentHistory></PaymentHistory>
+                element:<EmployeeRoute><PaymentHistory></PaymentHistory></EmployeeRoute>
             },
             {
                 path:'employee-list',
-                element:<EmployeeList></EmployeeList>
+                element:<HRRoute><EmployeeList></EmployeeList></HRRoute>
             },
             {
                 path:'details/:email',
-                element:<Details></Details>
+                element:<HRRoute><Details></Details></HRRoute>
             },
             {
                 path:'progress',
-                element:<Progress></Progress>
+                element:<HRRoute><Progress></Progress></HRRoute>
             },
             {
                 path:'all-employee-list',

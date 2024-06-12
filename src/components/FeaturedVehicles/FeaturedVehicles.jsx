@@ -15,14 +15,14 @@ const FeaturedVehicles = () => {
 
     return (
         <div>
-            <div className="text-center mb-10">
+            <div className="text-center mb-10 md:mb-14 lg:mb-10">
                 <h2 className="text-3xl font-semibold">Our Latest and Best-Selling Models</h2>
-                <p className="w-[70%] mx-auto mt-2">Explore our latest and best-selling vehicles, each engineered for excellence. Find your perfect match with advanced features, stylish design, and unbeatable performance. Drive the future today with our featured selection</p>
+                <p className="w-[95%] lg:w-[70%] mx-auto mt-2">Explore our latest and best-selling vehicles, each engineered for excellence. Find your perfect match with advanced features, stylish design, and unbeatable performance. Drive the future today with our featured selection</p>
             </div>
 
-            <div className="flex flex-col items-center justify-center min-h-screen p-10 text-gray-700 bg-gray-100 md:p-20">
+            <div className="flex flex-col items-center justify-center min-h-screen text-gray-700 lg:bg-gray-100 lg:p-20 ">
 
-                <div className="grid grid-cols-3 -space-x-10">
+                <div className="grid md:grid-cols-3 md:-space-x-10 gap-12 md:gap-0">
                     {
                         featuredVehicles.map((featuredVehicle, idx) =>
                             <div key={idx} className={featuredVehicle.position === 2 ? "flex flex-col flex-grow overflow-hidden bg-white rounded-lg shadow-lg scale-x-95 scale-y-110 z-20" : "flex flex-col flex-grow overflow-hidden bg-white rounded-lg shadow-lg scale-x-90"}>

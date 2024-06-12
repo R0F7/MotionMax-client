@@ -23,31 +23,44 @@ const NavBar = () => {
     }
 
     return (
-        <div className="border-b border-[#00b4d8] flex items-center justify-between container mx-auto py-2 md:mt-2">
-            <div>
+        <div className="border-b border-[#00b4d8] flex items-center justify-between container mx-auto py-2 px-3 md:px-0 mt-2">
+            <Link to='/'>
                 <h4 className="text-2xl flex items-center gap-2 text-[#00b4d8] font-bold">
                     <img className="w-[50px]" src="https://i.ibb.co/5c06sK1/Motion-Max-removebg-preview.png" alt="" />
                     <span>MotionMax</span>
                 </h4>
-            </div>
+            </Link>
             <div>
 
             </div>
             <div className="flex items-center">
                 <div className="mr-14">
-                    <ul className="space-x-3">
-                        {isEmployee && <NavLink to='/dashboard/work-sheet' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-b-2 pb-1.5 border-[#00b4d8]' : 'font-medium'}>Dashboard</NavLink>}
-                        {isHR && <NavLink to='/dashboard/work-sheet' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-b-2 pb-1.5 border-[#00b4d8]' : 'font-medium'}>Dashboard</NavLink>}
-                        {isAdmin && <NavLink to='/dashboard/all-employee-list' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-b-2 pb-1.5 border-[#00b4d8]' : 'font-medium'}>Dashboard</NavLink>}
-                        <NavLink to='/contact-us' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-b-2 pb-1.5 border-[#00b4d8]' : 'font-medium'}>Contact us</NavLink>
+                    <ul className="space-x-3 hidden md:block">
+                        {isEmployee && <NavLink to='/dashboard/work-sheet' className={({ isActive }) => isActive ? 'font-bold border-b-2 pb-1.5 border-[#00b4d8]' : 'font-medium'}>Dashboard</NavLink>}
+                        {isHR && <NavLink to='/dashboard/employee-list' className={({ isActive }) => isActive ? 'font-bold border-b-2 pb-1.5 border-[#00b4d8]' : 'font-medium'}>Dashboard</NavLink>}
+                        {isAdmin && <NavLink to='/dashboard/all-employee-list' className={({ isActive }) => isActive ? 'font-bold border-b-2 pb-1.5 border-[#00b4d8]' : 'font-medium'}>Dashboard</NavLink>}
+                        <NavLink to='/contact-us' className={({ isActive }) => isActive ? 'font-bold border-b-2 pb-1.5 border-[#00b4d8]' : 'font-medium'}>Contact us</NavLink>
                     </ul>
                 </div>
                 <div>
                     {user ?
-                        <div className="">
+                        <div className="z-50">
                             <div onClick={handleToggle} className="w-12 h-12 rounded-full border-2 p-[4px] border-[#00b4d8] focus:w-10 focus:h-10 relative ">
                                 <img className="w-full h-full rounded-full" referrerPolicy='no-referrer' src={user?.photoURL} alt="user" />
-                                <div className={toggle ? 'h-[60px] w-[150px] bg-[#00b4d8] absolute -left-[103px] top-[60px] rounded-lg flex justify-center items-center opacity-100 visible duration-700 z-50' : 'opacity-0 invisible duration-700 h-[60px] w-[150px] -left-[103px] top-[60px] flex justify-center items-center absolute z-50'}>
+
+                                <div className={toggle ? 'h-[160px] w-[250px] bg-[#00b4d8] absolute -left-[208px] top-[60px] rounded-lg justify-center md:hidden items-center opacity-100 visible duration-700 z-50' : 'opacity-0 invisible duration-700 h-[60px] w-[150px] -left-[103px] top-[60px] flex justify-center items-center absolute z-50'}>
+                                    <ul className="flex flex-col ">
+                                        {isEmployee && <NavLink to='/dashboard/work-sheet' className={({ isActive }) => isActive ? 'font-bold py-3.5 text-[#00b4d8] pl-12 bg-white' : 'font-bold pl-12 text-white py-3.5'}>Dashboard</NavLink>}
+                                        {isHR && <NavLink to='/dashboard/employee-list' className={({ isActive }) => isActive ? 'font-bold py-3.5 text-[#00b4d8] pl-12 bg-white' : 'font-bold pl-12 text-white py-3.5'}>Dashboard</NavLink>}
+                                        {isAdmin && <NavLink to='/dashboard/all-employee-list' className={({ isActive }) => isActive ? 'font-bold py-3.5 text-[#00b4d8] pl-12 bg-white' : 'font-bold pl-12 text-white py-3.5'}>Dashboard</NavLink>}
+                                        <NavLink to='/contact-us' className={({ isActive }) => isActive ? 'font-bold border-y py-3.5 text-[#00b4d8] pl-12 bg-white' : 'font-bold border-y py-3.5 text-white pl-12'}>Contact us</NavLink>
+                                    </ul>
+                                    <button onClick={handleLogOut} className="border-y-white py-2 w-full text- font-bold text-white  flex items-center hover:bg-white hover:text-[#00b4d8] duration-1000 ease-out">
+                                        <span className="text-xl ml-2 mr-6"><MdLogout /></span>LogOut
+                                    </button>
+                                </div>
+
+                                <div className={toggle ? 'h-[60px] w-[150px] bg-[#00b4d8] absolute -left-[103px] hidden top-[60px] rounded-lg md:flex justify-center items-center opacity-100 visible duration-700 z-50' : 'opacity-0 invisible duration-700 h-[60px] w-[150px] -left-[103px] top-[60px] flex justify-center items-center absolute z-50'}>
                                     <button onClick={handleLogOut} className="border-y-white border py-2 w-full text- font-bold text-white  flex items-center hover:bg-white hover:text-[#00b4d8] duration-1000 ease-out">
                                         <span className="text-xl ml-2 mr-6"><MdLogout /></span>LogOut
                                     </button>
@@ -55,10 +68,10 @@ const NavBar = () => {
                             </div>
                         </div>
                         :
-                        <>
-                            <Link to='/login'><button className="bg-[#00b4d8] py-2.5 px-5 text-sm font-bold text-white rounded-lg mr-3">Login</button></Link>
-                            <Link to='/register'><button className="bg-[#00b4d8] py-2.5 px-3.5 text-sm font-bold text-white rounded-lg">Register</button></Link>
-                        </>
+                        <div className="">
+                            <Link to='/login'><button className="bg-[#00b4d8] py-2.5 px-2 md:px-5 text-sm font-bold text-white rounded-lg mr-2 md:mr-3">Login</button></Link>
+                            <Link to='/register'><button className="bg-[#00b4d8] py-2.5 px-1 md:px-3.5 text-sm font-bold text-white rounded-lg">Register</button></Link>
+                        </div>
                     }
 
                     {/* for showing after toggle  */}

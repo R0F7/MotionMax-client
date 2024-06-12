@@ -31,11 +31,11 @@ const Progress = () => {
 
     return (
         <div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 ">
                 <div className="flex flex-col gap-1 border p-4 rounded shadow">
                     <label htmlFor="employee-select">Employee:</label>
                     <select
-                        className="border w-[220px] py-1 px-2"
+                        className="border md:w-[220px] py-1 px-2"
                         id="employee-select"
                         onChange={(e) => setSelectedEmployee(e.target.value)}
                     >
@@ -49,18 +49,10 @@ const Progress = () => {
                     </select>
                 </div>
                 <div className="flex flex-col gap-1 border p-4 rounded shadow">
-                    {/* <label htmlFor="month-select">Month:</label> */}
-                    {/* <input
-                        type="month"
-                        name="month"
-                        id="month-select"
-                        className="border w-[220px] py-1 px-2"
-                        onChange={(e) => setSelectedMonth(e.target.value)}
-                    /> */}
                     <label htmlFor="month-select">Select Month:</label>
                     <select
                         id="month-select"
-                        className="border w-[220px] py-1 px-2"
+                        className="border md:w-[220px] py-1 px-2"
                         onChange={(e) => setSelectedMonth(e.target.value)}
                     >
                         <option value="">Month</option>
@@ -80,7 +72,8 @@ const Progress = () => {
                 </div>
             </div>
             <div>
-            <table className="rounded-t-lg m-5 w-full mx-auto bg-gray-200 text-gray-800">
+            <div className="w-full overflow-x-auto">
+            <table className="rounded-t-lg m-5 w-full mx-auto bg-gray-200 text-gray-800 ">
                     <thead>
                         <tr className="text-left border-b-2 border-gray-300">
                             <th className="px-4 py-3">#</th>
@@ -107,6 +100,7 @@ const Progress = () => {
 
                     </tbody>
                 </table>
+            </div>
             </div>
         </div>
     );

@@ -28,8 +28,7 @@ const Details = () => {
 
     return (
         <div>
-            {email}
-            <div className="py-8 w-[400px] mx-auto shadow-xl rounded-lg bg-gradient-to-r from-indigo-400 to-cyan-400  transition-colors duration-1000">
+            <div className="py-8 md:w-[400px] mx-auto shadow-xl rounded-lg bg-gradient-to-r from-indigo-400 to-cyan-400  transition-colors duration-1000">
                 {/* <div className="border-x border py-2 -mx-6 bg-gradient-to-r from-indigo-400 to-cyan-400"> */}
                 <div>
                     <div className="h-20 w-20 mx-auto mb-6">

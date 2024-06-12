@@ -26,7 +26,7 @@ const Pagination = ({ table }) => {
                         {table.getPageCount()}
                     </strong>
                 </span>
-                <span className="flex items-center gap-1">
+                <span className="md:flex items-center gap-1 hidden ">
                     | Go to page:
                     <input type="number"
                         defaultValue={table.getState().pagination.pageIndex + 1}
@@ -43,7 +43,7 @@ const Pagination = ({ table }) => {
                     onChange={(e) => {
                         table.setPageSize(Number(e.target.value));
                     }}
-                    className="h-9 text-xs bg-transparent"
+                    className="h-9 text-xs bg-transparent "
                 >
                     {
                         [5, 10, 20, 30, 50].map((pageSize) => (

@@ -10,16 +10,16 @@ const Home = () => {
             <div className="mt-2.5">
                 <Slider></Slider>
             </div>
-            <div className="my-16">
+            <div className=" my-10 md:my-16">
                 <Services></Services>
             </div>
-            <div className="my-16">
+            <div className="my-10 md:my-16">
                 <FeaturedVehicles></FeaturedVehicles>
             </div>
-            <div className="my-16">
+            <div className="my-10 md:my-16">
                 <OurPartners></OurPartners>
             </div>
-            <div className="my-16">
+            <div className="mt-10 md:my-16">
                 <Testimonials></Testimonials>
             </div>
         </div>

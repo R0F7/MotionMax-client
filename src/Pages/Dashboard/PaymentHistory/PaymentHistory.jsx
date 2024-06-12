@@ -61,7 +61,7 @@ const PaymentHistory = () => {
     });
 
     return (
-        <div>
+        <div className="w-full overflow-x-auto">
             <table className=" w-full text-left">
                 <thead className="bg-indigo-60 bg-[#14456A]">
                     {

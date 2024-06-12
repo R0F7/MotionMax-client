@@ -18,9 +18,9 @@ const Services = () => {
         <div>
             <div className="text-center">
                 <h2 className="text-3xl font-semibold">All-Inclusive Services Hub</h2>
-                <p className="w-[70%] mx-auto mt-2"> Discover a holistic array of automotive services tailored to your needs. From sales and leasing to support, management, and sustainability initiatives, our comprehensive solutions ensure your journey is smooth and sustainable.</p>
+                <p className="w-[95%] lg:w-[70%] mx-auto mt-2"> Discover a holistic array of automotive services tailored to your needs. From sales and leasing to support, management, and sustainability initiatives, our comprehensive solutions ensure your journey is smooth and sustainable.</p>
             </div>
-            <div className="grid grid-cols-3 gap-7 mt-10">
+            <div className="grid lg:grid-cols-3 gap-5 md:gap-7 mt-10 mx-4 md:mx-0">
                 {
                     services.map((service, idx) => <ServiceCard key={idx} service={service}></ServiceCard>)
                 }
