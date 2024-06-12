@@ -93,7 +93,7 @@ const AllEmployeeList = () => {
                 :
                 <button
                     onClick={() => handleMakeHR(info.row.original)}
-                    className="btn btn-xs bg-green-500 text-white text-xs"
+                    className=" btn btn-xs bg-green-500 text-white text-[10px] md:text-xs"
                 >Make HR</button>
             ),
             header: 'Make HR',
@@ -136,7 +136,8 @@ const AllEmployeeList = () => {
             {
                 toggle ?
 
-                    <table className=" w-full text-left">
+                    <div className="w-full overflow-x-auto">
+                        <table className="w-full text-left ">
                         <thead className="bg-indigo-60 bg-[#14456A]">
                             {
                                 table.getHeaderGroups().map((headerGroup) => (
@@ -176,8 +177,9 @@ const AllEmployeeList = () => {
                             }
                         </tbody>
                     </table>
+                    </div>
                     :
-                    <div className="grid grid-cols-4 gap-6">
+                    <div className="grid lg:grid-cols-4 gap-6">
                         {
                             allEmployee.map(employee =>
                                 <div key={employee._id} className="bg-gray-100 p-4 rounded-lg">

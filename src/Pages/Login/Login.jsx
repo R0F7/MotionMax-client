@@ -10,6 +10,7 @@ const Login = () => {
     const { signIn, signInWithGoogle, logOut } = useAuth();
     const navigate = useNavigate();
     const axiosCommon = useAxiosCommon();
+    const from = location.state?.from?.pathname || '/';
 
     const { data: users = [] } = useQuery({
         queryKey: ['fired-users'],
@@ -38,7 +39,7 @@ const Login = () => {
             const result = await signIn(email, password)
             console.log(result.user);
             toast.success("Login successful! Welcome back.")
-            navigate('/')
+            navigate(from, { replace: true })
         } catch (error) {
             toast.error("Incorrect email or password. Please try again.")
             // console.log(error.message);
@@ -79,7 +80,7 @@ const Login = () => {
                 isVerified,
             }
             console.log(userInfo);
-            navigate('/')
+            navigate(from, { replace: true })
 
             const res = await axiosCommon.post('/users', userInfo)
             console.log(res.data);

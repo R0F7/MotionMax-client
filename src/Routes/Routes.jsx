@@ -11,11 +11,15 @@ import Details from "../Pages/Dashboard/Details/Details";
 import Progress from "../Pages/Dashboard/Progress/Progress";
 import AllEmployeeList from "../Pages/Dashboard/AllEmployeeList/AllEmployeeList";
 import Contact from "../Pages/Contact/Contact";
+import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 index: true,
@@ -37,7 +41,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
                 path: 'work-sheet',
@@ -61,7 +65,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:'all-employee-list',
-                element:<AllEmployeeList></AllEmployeeList>,
+                element:<AdminRoute><AllEmployeeList></AllEmployeeList></AdminRoute>,
                
             }
         ]
