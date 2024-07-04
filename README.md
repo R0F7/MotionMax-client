@@ -5,18 +5,18 @@ This Employee Management System is designed for a renowned company to monitor em
 
 ---
 ## Key Features :
- User Authentication : 
+ User Authentication: 
 - Email/Password and Social Login: Secure authentication
 - Role-Based Access: Employee, HR, and Admin roles
   
-Employee Dashboard: : 
+Employee Dashboard: 
 - Work Sheet: Log tasks and hours worked
 - Payment History: View monthly salary history
   
-HR Dashboard : 
+HR Dashboard: 
 - Employee List: Manage employee details and payments
 - Progress Monitoring: Filter work records by employee and month
-
+  
 Admin Dashboard:
 - All Employee List: Manage HR roles and employee status
 - Salary Management: Adjust salaries with increase-only restrictions
@@ -29,6 +29,19 @@ Admin Dashboard:
 ## Admin User’s info 
 - Email: wwwrafikhan075@gmail.com
 - Password: Rafi123@
+---
+## Steps to Run the Project on Localhost: 
+- Clone the Repository
+- Navigate to Project Directories
+- Install Dependencies
+- Set Up Environment Variables
+- Start the Server
+- Start the Client
+<!-- <code> MONGODB_URI=<'your-mongodb-uri'><br> -->
+<!-- JWT_SECRET=<'your-jwt-secret'><br> -->
+<!-- REACT_APP_FIREBASE_API_KEY=<'your-firebase-api-key'><br> -->
+<!-- REACT_APP_FIREBASE_AUTH_DOMAIN=<'your-firebase-auth-domain'> -->
+<!-- </code> --> 
   
 ## Live site:
 - [MotionMax](https://motionmax-b4ca7.web.app)
