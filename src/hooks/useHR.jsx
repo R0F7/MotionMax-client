@@ -11,7 +11,7 @@ const useHR = () => {
         enabled: !loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/HR/${user.email}`);
-            console.log('form hr',res.data);
+            // console.log('form hr',res.data);
             return res.data?.HR
         }
     })

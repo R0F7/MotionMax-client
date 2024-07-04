@@ -36,8 +36,8 @@ const Sidebar = () => {
                 // className='hidden md:block'
                 src='https://i.ibb.co/5c06sK1/Motion-Max-removebg-preview.png'
                 alt='logo'
-                width='100'
-                height='100'
+                width='50'
+                height='50'
               />
             </Link>
           </div>

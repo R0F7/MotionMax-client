@@ -37,7 +37,7 @@ const Login = () => {
 
         try {
             const result = await signIn(email, password)
-            console.log(result.user);
+            // console.log(result.user);
             toast.success("Login successful! Welcome back.")
             navigate(from, { replace: true })
         } catch (error) {
@@ -79,7 +79,7 @@ const Login = () => {
                 bank_account_no,
                 isVerified,
             }
-            console.log(userInfo);
+            // console.log(userInfo);
             navigate(from, { replace: true })
 
             const res = await axiosCommon.post('/users', userInfo)

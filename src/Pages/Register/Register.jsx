@@ -57,7 +57,7 @@ const Register = () => {
             // console.log('userInfo', userInfo);
 
             const res = await axiosCommon.post('/users', userInfo)
-            console.log(res.data);
+            // console.log(res.data);
 
             toast.success("Registration successful! Welcome aboard.")
             navigate('/')

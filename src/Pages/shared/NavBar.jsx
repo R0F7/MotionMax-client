@@ -12,7 +12,10 @@ const NavBar = () => {
     const [isEmployee] = useEmployee();
     const [isHR] = useHR();
     const [isAdmin] = useAdmin();
-    // console.log(user);
+
+    // const isEmployee = false
+    // const isHR = false
+    // const isAdmin = true
 
     const handleToggle = () => {
         setToggle(!toggle)
