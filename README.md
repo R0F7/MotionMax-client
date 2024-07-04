@@ -1,36 +1,41 @@
 # MotionMax
 
-## Project Description: Employee Management System
+## 🌍 Project Overview: Employee Management System
 This Employee Management System is designed for a renowned company to monitor employee workloads, manage salaries, and streamline HR operations. The system features a web application where employees post workflow updates, and HR executives monitor these updates and manage payments.
 
 ---
-## Key Features :
- User Authentication: 
-- Email/Password and Social Login: Secure authentication
-- Role-Based Access: Employee, HR, and Admin roles
+
+## 📖 Top Features:
+ - **User Authentication:**
+   - Email/Password and Social Login: Secure authentication
+   - Role-Based Access: Employee, HR, and Admin roles
   
-Employee Dashboard: 
-- Work Sheet: Log tasks and hours worked
-- Payment History: View monthly salary history
+- **Employee Dashboard:**
+  - Work Sheet: Log tasks and hours worked
+  - Payment History: View monthly salary history
   
-HR Dashboard: 
-- Employee List: Manage employee details and payments
-- Progress Monitoring: Filter work records by employee and month
+- **HR Dashboard:** 
+  - Employee List: Manage employee details and payments
+  - Progress Monitoring: Filter work records by employee and month
   
-Admin Dashboard:
-- All Employee List: Manage HR roles and employee status
-- Salary Management: Adjust salaries with increase-only restrictions
+- **Admin Dashboard:**
+  - All Employee List: Manage HR roles and employee status
+  - Salary Management: Adjust salaries with increase-only restrictions
 ---
-## Implementation Details
+
+## 🚀 Live Site: [MotionMax](https://motionmax-b4ca7.web.app)
+
+## 🛠️ Implementation Details
 - Frontend: Developed using React and the MERN stack.
 - Backend: Node.js with Express.js for API endpoints.
 - Database: MongoDB for data storage and management.
 ---
-## Admin User’s info 
+
+## 📝 Admin User’s info 
 - Email: wwwrafikhan075@gmail.com
 - Password: Rafi123@
 ---
-## Steps to Run the Project on Localhost: 
+## 📦 Steps to Run the Project on Localhost: 
 - Clone the Repository
 - Navigate to Project Directories
 - Install Dependencies
@@ -43,9 +48,6 @@ Admin Dashboard:
 <!-- REACT_APP_FIREBASE_API_KEY=<'your-firebase-api-key'><br> -->
 <!-- REACT_APP_FIREBASE_AUTH_DOMAIN=<'your-firebase-auth-domain'> -->
 <!-- </code> --> 
-  
-## Live site:
-- [MotionMax](https://motionmax-b4ca7.web.app)
 
 ---
 ## Resources:
