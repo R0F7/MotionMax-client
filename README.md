@@ -37,6 +37,7 @@ Admin Dashboard:
 - Set Up Environment Variables
 - Start the Server
 - Start the Client
+<!-- Assignment_category_0005 -->
 <!-- <code> MONGODB_URI=<'your-mongodb-uri'><br> -->
 <!-- JWT_SECRET=<'your-jwt-secret'><br> -->
 <!-- REACT_APP_FIREBASE_API_KEY=<'your-firebase-api-key'><br> -->
