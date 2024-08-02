@@ -52,7 +52,7 @@ This Employee Management System is designed for a renowned company to monitor em
 ---
 ## Resources:
 
-- [fire base](https://firebase.google.com/)
+- [firebase](https://firebase.google.com/)
 - [React Router Dom](https://reactrouter.com/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Daisy UI](https://daisyui.com/)
