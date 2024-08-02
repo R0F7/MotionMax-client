@@ -26,7 +26,7 @@ This Employee Management System is designed for a renowned company to monitor em
 ## 🚀 Live Site: [MotionMax](https://motionmax-b4ca7.web.app)
 
 ## 🛠️ Implementation Details
-- Frontend: Developed using React and the MERN stack.
+- Frontend: Developed using React.
 - Backend: Node.js with Express.js for API endpoints.
 - Database: MongoDB for data storage and management.
 ---
